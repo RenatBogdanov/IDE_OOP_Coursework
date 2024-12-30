@@ -30,6 +30,12 @@ void IDE::setVersion(std::string v){
     version = v;
 }
 
+void IDE::setType(IdeType t){
+    type = t;
+}
+
+
+
 std::string IDE::getName(){
     return name;
 }
@@ -40,4 +46,8 @@ std::string IDE::getVersion(){
 
 int IDE::getId(){
     return id;
+}
+
+IdeType IDE::getType(){
+    return type;
 }

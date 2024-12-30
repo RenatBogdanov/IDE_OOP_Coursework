@@ -4,6 +4,11 @@
 #include <string>
 #include <iostream>
 
+enum class IdeType {
+    TextEditor,
+    FullFeatured,
+    CloudBased
+};
 
 /// @brief Класс IDE
 class IDE
@@ -16,6 +21,8 @@ private:
     std::string version;
     /// @brief Инициализация объекта
     void init();
+
+    IdeType type;
 public:
     /// @brief Идентификатор IDE
     static int id;
@@ -36,6 +43,9 @@ public:
     /// @brief Сеттер версии IDE
     /// @param v Версия IDE
     void setVersion(std::string v);
+    /// @brief Сеттер типа IDE
+    /// @param t Тип IDE
+    void setType(IdeType t);
 
     /// @brief Геттер названия IDE
     /// @return Название IDE
@@ -46,6 +56,9 @@ public:
     /// @brief Геттер идентификатора IDE
     /// @return Идентификатор IDE
     int getId();
+    /// @brief Геттер типа IDE
+    /// @return Тип IDE
+    IdeType getType();
 
 
 };

@@ -14,5 +14,8 @@ int main() {
     std::cout << visual_studio.getVersion() << std::endl;
     std::cout << visual_studio.getId() << std::endl;
 
+    visual_studio.setType(IdeType::TextEditor);
+    std::cout << (int)visual_studio.getType() << std::endl;
+
     return 0;
 }
