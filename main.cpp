@@ -8,5 +8,7 @@ int main() {
     vscode.setName("vscode");
     std::cout << vscode.getName() << std::endl;
 
+    IDE visual_studio("Visual Studio");
+
     return 0;
 }
