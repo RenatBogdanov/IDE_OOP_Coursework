@@ -19,15 +19,18 @@ private:
     std::string name;
     /// @brief Версия IDE
     std::string version;
-    /// @brief Инициализация объекта
-    void init();
-
+    /// @brief Тиа IDE
     IdeType type;
+    /// @brief Адресс объекта IDE
+    IDE* adress;
 public:
     /// @brief Идентификатор IDE
     static int id;
 
     // Методы класса
+private:
+    /// @brief Инициализация объекта
+    void init();
 public:
     /// @brief Конструктор класса IDE (без параметров)
     IDE();
@@ -59,6 +62,9 @@ public:
     /// @brief Геттер типа IDE
     /// @return Тип IDE
     IdeType getType();
+    /// @brief Геттер адресса объекта IDE
+    /// @return Адресс объекта IDE
+    IDE* getAdress();
 
 
 };

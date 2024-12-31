@@ -4,6 +4,7 @@ int IDE::id = 0;
 
 void IDE::init(){
     ++id;
+    adress = this;
 }
 
 IDE::IDE() {
@@ -50,4 +51,8 @@ int IDE::getId(){
 
 IdeType IDE::getType(){
     return type;
+}
+
+IDE* IDE::getAdress() {
+    return adress;
 }

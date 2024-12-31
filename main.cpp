@@ -16,6 +16,7 @@ int main() {
 
     visual_studio.setType(IdeType::TextEditor);
     std::cout << (int)visual_studio.getType() << std::endl;
+    std::cout << visual_studio.getAdress() << std::endl;
 
     return 0;
 }
