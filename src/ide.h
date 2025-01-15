@@ -17,13 +17,19 @@ class IDE
 private:
     /// @brief Название IDE
     std::string name_;
+
     /// @brief Версия IDE
     std::string version_;
+
     /// @brief Тип IDE
     IdeType type_;
+
     /// @brief Адрес объекта IDE
     IDE* adress_;
+
+    /// @brief ID объекта IDE
     int id_;
+
 public:
     /// @brief Идентификатор IDE
     static int id_global;
@@ -32,37 +38,48 @@ public:
 private:
     /// @brief Инициализация объекта
     void init();
+
 public:
     /// @brief Конструктор класса IDE (без параметров)
     IDE();
+
     /// @brief Конструктор класса IDE (c параметрами)
     /// @param n Название класса
     IDE(const std::string n);
+
     /// @brief Деструктор класса IDE
     ~IDE();
+
 
     /// @brief Сеттер названия IDE
     /// @param n Название IDE
     void setName(const std::string n);
+
     /// @brief Сеттер версии IDE
     /// @param v Версия IDE
     void setVersion(const std::string v);
+
     /// @brief Сеттер типа IDE
     /// @param t Тип IDE
     void setType(const IdeType t);
 
+
     /// @brief Геттер названия IDE
     /// @return Название IDE
     const std::string getName() const;
+
     /// @brief Геттер версии IDE
     /// @return Версия IDE
     const std::string getVersion() const;
+
     /// @brief Геттер идентификатора IDE
     /// @return Идентификатор IDE
     const int getId() const;
+
     /// @brief Геттер типа IDE
     /// @return Тип IDE
     const IdeType getType() const;
+
     /// @brief Геттер адресса объекта IDE
     /// @return Адресс объекта IDE
     const IDE* getAdress() const;

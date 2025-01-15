@@ -5,36 +5,42 @@
 #include <iostream>
 #include "ide.h"
 
+/// @brief Структура узла закольцованного списка
 struct Node
 {
     private:
-        IDE data;
-        Node* next;
+        IDE data_;
+        Node* next_;
     public:
         Node(IDE);
-        Node* getNext();
-        void setNext(Node*);
-
+        const Node* getNext() const;
+        void setNext(Node* n);
+        IDE getData() const;
+        void setData(IDE data);
 };
 
 
-/// @brief Структура закольцованного списка для хранения объектов IDE
+/// @brief Класс закольцованного списка для хранения объектов IDE
 class IDE_LinkedList
 {
     private:
-        Node* head;
-        Node* tail;
-        int size;
+        Node* head_;
+        Node* tail_;
+        int size_;
+
     public:
         IDE_LinkedList(const int s);
         ~IDE_LinkedList();
+
         void addFirst(IDE&);
         void addLast(IDE&);
         void addAt(int, IDE&);
+
         void removeFirst(IDE&);
         void removeLast(IDE&);
         void removeAt(int, IDE&);
         void removeByValue(IDE&);
+
         const void printList();
         void sortByName();
         IDE* findByType(IdeType);
