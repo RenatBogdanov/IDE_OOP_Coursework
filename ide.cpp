@@ -1,21 +1,22 @@
 #include "ide.h"
 
-int IDE::id = 0;
+int IDE::id_global = 0;
 
 void IDE::init(){
-    ++id;
-    adress = this;
+    ++id_global;
+    id_ = id_global;
+    adress_ = this;
 }
 
 IDE::IDE() {
     init();
-    name = "default";
+    name_ = "default";
     std::cout << "Birth of new class: " << getName() << std::endl;
 }
 
-IDE::IDE(std::string n){
+IDE::IDE(const std::string n){
     init();
-    name = n;
+    name_ = n;
     std::cout << "Birth of new class: " << getName() << std::endl;
 }
 
@@ -23,36 +24,38 @@ IDE::~IDE(){
     std::cout << "Death of class: " << getName() << std::endl;
 }
 
-void IDE::setName(std::string n){
-    name = n;
+
+// Сеттеры
+void IDE::setName(const std::string n){
+    name_ = n;
 }
 
-void IDE::setVersion(std::string v){
-    version = v;
+void IDE::setVersion(const std::string v){
+    version_ = v;
 }
 
-void IDE::setType(IdeType t){
-    type = t;
+void IDE::setType(const IdeType t){
+    type_ = t;
 }
 
 
-
-std::string IDE::getName(){
-    return name;
+// Геттеры
+const std::string IDE::getName() const {
+    return name_;
 }
 
-std::string IDE::getVersion(){
-    return version;
+const std::string IDE::getVersion() const {
+    return version_;
 }
 
-int IDE::getId(){
-    return id;
+const int IDE::getId() const {
+    return id_;
 }
 
-IdeType IDE::getType(){
-    return type;
+const IdeType IDE::getType() const {
+    return type_;
 }
 
-IDE* IDE::getAdress() {
-    return adress;
+const IDE* IDE::getAdress() const {
+    return adress_;
 }

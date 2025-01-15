@@ -1,8 +1,13 @@
 #include "ide.h"
+#include "circular_linked_list_ide.h"
+
 #include <iostream>
 #include <string>
 
 int main() {
+    LinkedList list;
+    list.SayHello();
+
     int count = 0;
     IDE vscode;
     vscode.setName("vscode");
@@ -17,6 +22,7 @@ int main() {
     visual_studio.setType(IdeType::TextEditor);
     std::cout << (int)visual_studio.getType() << std::endl;
     std::cout << visual_studio.getAdress() << std::endl;
+    std::cout << vscode.getId() << std::endl;
 
     return 0;
 }
