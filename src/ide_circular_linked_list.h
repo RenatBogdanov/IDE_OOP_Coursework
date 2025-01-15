@@ -34,6 +34,13 @@ class IDE_LinkedList
         void removeFirst(IDE&);
         void removeLast(IDE&);
         void removeAt(int, IDE&);
+        void removeByValue(IDE&);
+        const void printList();
+        void sortByName();
+        IDE* findByType(IdeType);
+        IDE* findByName(std::string);
+        IDE* toArray(int&);
+
 };
 
 
