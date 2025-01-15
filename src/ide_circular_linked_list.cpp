@@ -7,7 +7,7 @@ Node::Node(IDE)
 {
 }
 
-const Node *Node::getNext() const
+Node *Node::getNext() const
 {
     return next_;
 }
@@ -28,60 +28,67 @@ void Node::setData(IDE data) {
 
 // Методы закольцованного списка
 
-IDE_LinkedList::IDE_LinkedList(const int s)
+IDE_LinkedList::IDE_LinkedList()
 {
-    std::cout << "Birth of list\n";
 }
 
 IDE_LinkedList::~IDE_LinkedList()
 {
 }
 
-void IDE_LinkedList::addFirst(IDE &)
+void IDE_LinkedList::addFirst(IDE& data)
 {
+
 }
 
-void IDE_LinkedList::addLast(IDE &)
+void IDE_LinkedList::addLast(IDE& data)
 {
+
 }
 
-void IDE_LinkedList::addAt(int, IDE &)
+void IDE_LinkedList::addAt(int index, IDE& data)
 {
+
 }
 
-void IDE_LinkedList::removeFirst(IDE &)
+void IDE_LinkedList::removeFirst(IDE& data)
 {
+
 }
 
-void IDE_LinkedList::removeLast(IDE &)
+void IDE_LinkedList::removeLast(IDE& data)
 {
+
 }
 
-void IDE_LinkedList::removeAt(int, IDE &)
+void IDE_LinkedList::removeAt(int index, IDE &data)
 {
+
 }
 
-void IDE_LinkedList::removeByValue(IDE &)
+void IDE_LinkedList::removeByValue(IDE &data)
 {
+
 }
 
 void IDE_LinkedList::sortByName()
 {
+
 }
 
-IDE *IDE_LinkedList::findByType(IdeType)
+IDE *IDE_LinkedList::findByType(IdeType type)
 {
     return nullptr;
 }
 
-IDE *IDE_LinkedList::findByName(std::string)
+IDE *IDE_LinkedList::findByName(std::string name)
 {
     return nullptr;
 }
 
 IDE *IDE_LinkedList::toArray(int &)
 {
-    return nullptr;
+   return nullptr;
 }
 
 

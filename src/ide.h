@@ -27,7 +27,7 @@ private:
     /// @brief Адрес объекта IDE
     IDE* adress_;
 
-    /// @brief ID объекта IDE
+    /// @brief ID объекта
     int id_;
 
 public:

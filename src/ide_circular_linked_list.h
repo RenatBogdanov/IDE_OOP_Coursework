@@ -13,7 +13,7 @@ struct Node
         Node* next_;
     public:
         Node(IDE);
-        const Node* getNext() const;
+        Node* getNext() const;
         void setNext(Node* n);
         IDE getData() const;
         void setData(IDE data);
@@ -29,23 +29,23 @@ class IDE_LinkedList
         int size_;
 
     public:
-        IDE_LinkedList(const int s);
+        IDE_LinkedList();
         ~IDE_LinkedList();
 
-        void addFirst(IDE&);
-        void addLast(IDE&);
-        void addAt(int, IDE&);
+        void addFirst(IDE& data);
+        void addLast(IDE& data);
+        void addAt(int index, IDE& data);
 
-        void removeFirst(IDE&);
-        void removeLast(IDE&);
-        void removeAt(int, IDE&);
-        void removeByValue(IDE&);
+        void removeFirst(IDE& data);
+        void removeLast(IDE& data);
+        void removeAt(int index, IDE& data);
+        void removeByValue(IDE& data);
 
         const void printList();
         void sortByName();
-        IDE* findByType(IdeType);
-        IDE* findByName(std::string);
-        IDE* toArray(int&);
+        IDE* findByType(IdeType type);
+        IDE* findByName(std::string name);
+        IDE* toArray(int& size);
 
 };
 

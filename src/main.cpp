@@ -5,7 +5,7 @@
 #include <string>
 
 int main() {
-    IDE_LinkedList listName(1);
+    IDE_LinkedList listName();
 
     int count = 0;
     IDE vscode;
