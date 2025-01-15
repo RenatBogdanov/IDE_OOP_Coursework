@@ -1,12 +1,11 @@
 #include "ide.h"
-#include "circular_linked_list_ide.h"
+#include "ide_circular_linked_list.h"
 
 #include <iostream>
 #include <string>
 
 int main() {
-    LinkedList list;
-    list.SayHello();
+    IDE_LinkedList listName(1);
 
     int count = 0;
     IDE vscode;
