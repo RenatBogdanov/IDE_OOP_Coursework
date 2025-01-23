@@ -1,9 +1,12 @@
+#pragma once
+
 #ifndef IDE_H
 #define IDE_H
 
 #include <string>
 #include <iostream>
 
+/// @brief Перечисление типов IDE
 enum class IdeType {
     TextEditor,
     FullFeatured,

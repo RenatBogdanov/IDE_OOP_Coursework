@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef IDE_CIRCULAR_LINKED_LIST
 #define IDE_CIRCULAR_LINKED_LIST
 
