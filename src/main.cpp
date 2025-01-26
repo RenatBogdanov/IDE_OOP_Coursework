@@ -4,24 +4,42 @@
 #include <iostream>
 #include <string>
 
+#define ide ide_class
+
 int main() {
-    IDE_LinkedList listName();
+    ide::IDE first("1");
+    ide::IDE second("2");
+    ide::IDE third("3");
+    ide::IDE fourth("4");  
 
-    int count = 0;
-    IDE vscode;
-    vscode.setName("vscode");
-    std::cout << vscode.getName() << std::endl;
-    std::cout << vscode.getId() << std::endl;
+    ide::IDE_LinkedList linked_list;
+    linked_list.addFirst(first);
+    linked_list.printList();
+    std::cout << std::endl;
 
-    IDE visual_studio("Visual Studio");
-    visual_studio.setVersion("v.10010");
-    std::cout << visual_studio.getVersion() << std::endl;
-    std::cout << visual_studio.getId() << std::endl;
+    linked_list.addFirst(second);
+    linked_list.printList();
+    std::cout << std::endl;
 
-    visual_studio.setType(IdeType::TextEditor);
-    std::cout << (int)visual_studio.getType() << std::endl;
-    std::cout << visual_studio.getAdress() << std::endl;
-    std::cout << vscode.getId() << std::endl;
+    linked_list.addFirst(third);
+    linked_list.printList();
+    std::cout << std::endl;
+
+    linked_list.addFirst(fourth);
+    linked_list.printList();
+    std::cout << std::endl;
+
+    ide_class::Node* tempFirst = linked_list.getFirst();
+    std::cout << "tempFirst = " << tempFirst << std::endl;
+    std::cout << "tempFirst = " << tempFirst->getData().getName() << std::endl << std::endl;
+
+    linked_list.removeFirst();
+    linked_list.printList();
+    std::cout << std::endl;
+
+    std::cout << "tempFirst = " << tempFirst->getData().getName() << std::endl << std::endl;
+
+    linked_list.printList();
 
     return 0;
 }

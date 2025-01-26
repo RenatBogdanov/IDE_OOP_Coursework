@@ -1,94 +1,128 @@
 #include "ide_circular_linked_list.h"
 
+namespace ide_class {
+    // Методы узла закольцованного списка
 
-// Методы узла закольцованного списка
+    Node::Node()
+    {
+        //std::cout << "Birth of node\n";
+    }
 
-Node::Node(IDE)
-{
-}
+    Node *Node::getNext() const
+    {
+        return next_;
+    }
 
-Node *Node::getNext() const
-{
-    return next_;
-}
+    void Node::setNext(Node *next)
+    {
+        next_ = next;
+    }
 
-void Node::setNext(Node *next)
-{
-    next_ = next;
-}
+    IDE Node::getData() const {
+        return data_;
+    }
 
-IDE Node::getData() const {
-    return data_;
-}
-
-void Node::setData(IDE data) {
-    data_ = data;
-}
+    void Node::setData(IDE data) {
+        data_ = data;
+    }
 
 
-// Методы закольцованного списка
+    // Методы закольцованного списка
 
-IDE_LinkedList::IDE_LinkedList()
-{
-}
+    IDE_LinkedList::IDE_LinkedList()
+    {
+        head_ = NULL;
+        size_ = 0;
+        //std::cout << "Birth of linked list\n";
+    }
 
-IDE_LinkedList::~IDE_LinkedList()
-{
-}
+    IDE_LinkedList::~IDE_LinkedList()
+    {
+        //std::cout << "Death of linked list\n";
+    }
 
-void IDE_LinkedList::addFirst(IDE& data)
-{
+    bool IDE_LinkedList::isEmpty() 
+    {
+        if (size_ == 0) return true;
+        else return false;
+    }
 
-}
+    int IDE_LinkedList::size()
+    {
+        return size_;
+    }
 
-void IDE_LinkedList::addLast(IDE& data)
-{
+    void IDE_LinkedList::addFirst(IDE data)
+    {
+        Node* newNode = new Node();
+        newNode->setData(data);
+        if (isEmpty()) {
+            head_ = newNode;   
+            newNode->setNext(head_);
+        }
+        else {
+            Node* temp = getFirst();
+            while (temp->getNext() != head_)
+            {
+                temp = temp->getNext();
+            }
+            newNode->setNext(head_);
+            temp->setNext(newNode);
+            head_ = newNode;         
+        }
+        size_++;
 
-}
+        
+    }
 
-void IDE_LinkedList::addAt(int index, IDE& data)
-{
+    Node* IDE_LinkedList::getFirst()
+    {
+        return head_;
+    }
 
-}
+    void IDE_LinkedList::removeFirst()
+    {
+        Node* newHead = head_->getNext();
+        Node* temp = getFirst();
+            while (temp->getNext() != head_)
+            {
+                temp = temp->getNext();
+            }
+        temp->setNext(newHead);
+        delete head_;
+        head_ = newHead;
+    }
 
-void IDE_LinkedList::removeFirst(IDE& data)
-{
+    const void IDE_LinkedList::printList()
+    {
+        Node* newHead = head_->getNext();
+        Node* temp = getFirst();
 
-}
+        std::cout << temp << ": " << temp->getData().getName() << std::endl;
+        while (temp->getNext() != head_)
+        {
+            temp = temp->getNext();
+            std::cout << temp << ": " << temp->getData().getName() << std::endl;
+        }
+    }
 
-void IDE_LinkedList::removeLast(IDE& data)
-{
+    void IDE_LinkedList::sortByName()
+    {
 
-}
+    }
 
-void IDE_LinkedList::removeAt(int index, IDE &data)
-{
+    IDE *IDE_LinkedList::findByType(IdeType type)
+    {
+        return nullptr;
+    }
 
-}
+    IDE *IDE_LinkedList::findByName(std::string name)
+    {
+        return nullptr;
+    }
 
-void IDE_LinkedList::removeByValue(IDE &data)
-{
-
-}
-
-void IDE_LinkedList::sortByName()
-{
-
-}
-
-IDE *IDE_LinkedList::findByType(IdeType type)
-{
+    IDE *IDE_LinkedList::toArray(int &)
+    {
     return nullptr;
+    }
 }
-
-IDE *IDE_LinkedList::findByName(std::string name)
-{
-    return nullptr;
-}
-
-IDE *IDE_LinkedList::toArray(int &)
-{
-   return nullptr;
-}
-
-
