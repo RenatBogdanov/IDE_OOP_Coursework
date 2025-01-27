@@ -33,12 +33,11 @@ namespace ide_class {
     {
         head_ = NULL;
         size_ = 0;
-        //std::cout << "Birth of linked list\n";
     }
 
     IDE_LinkedList::~IDE_LinkedList()
     {
-        //std::cout << "Death of linked list\n";
+        //delete[] lastContainer;
     }
 
     bool IDE_LinkedList::isEmpty() 
@@ -71,8 +70,6 @@ namespace ide_class {
             head_ = newNode;         
         }
         size_++;
-
-        
     }
 
     Node* IDE_LinkedList::getFirst()
@@ -91,6 +88,7 @@ namespace ide_class {
         temp->setNext(newHead);
         delete head_;
         head_ = newHead;
+        size_--;
     }
 
     const void IDE_LinkedList::printList()
@@ -104,6 +102,19 @@ namespace ide_class {
             temp = temp->getNext();
             std::cout << temp << ": " << temp->getData().getName() << std::endl;
         }
+    }
+
+    IDE IDE_LinkedList::getContainer()
+    {
+        IDE* container = new IDE[size_];
+        Node* temp = getFirst();
+        for (int i = 0; i < size_; i++) {
+            container[i] = temp->getData();
+            temp = temp->getNext();
+        }
+        container[size_-1] = temp->getData();
+
+        return *container;
     }
 
     void IDE_LinkedList::sortByName()

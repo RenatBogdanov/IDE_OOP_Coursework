@@ -29,6 +29,7 @@ namespace ide_class {
         private:
             Node* head_;
             int size_;
+            IDE* lastContainer;
 
         public:
             IDE_LinkedList();
@@ -42,9 +43,11 @@ namespace ide_class {
             Node* getFirst();
 
             void removeFirst();
-            void removeByValue(IDE& data);
 
             const void printList();
+
+            IDE getContainer();
+
             void sortByName();
             IDE* findByType(IdeType type);
             IDE* findByName(std::string name);

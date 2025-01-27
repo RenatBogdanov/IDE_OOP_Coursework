@@ -41,5 +41,11 @@ int main() {
 
     linked_list.printList();
 
+    
+    ide::IDE* container = new ide::IDE[linked_list.size()];
+    *container = linked_list.getContainer();
+
+    std::cout << container[linked_list.size()-1].getName() << std::endl;
+
     return 0;
 }
