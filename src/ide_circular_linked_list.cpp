@@ -46,7 +46,7 @@ namespace ide_class {
         else return false;
     }
 
-    int IDE_LinkedList::size()
+    int IDE_LinkedList::getSize()
     {
         return size_;
     }
