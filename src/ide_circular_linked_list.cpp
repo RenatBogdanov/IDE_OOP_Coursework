@@ -120,7 +120,30 @@ namespace ide_class {
     
     void IDE_LinkedList::sortByName()
     {
+        if (isEmpty() || size_ == 1) {
+            return;
+        }
 
+        bool swapped;
+        Node* current_ptr;
+        Node* last_ptr = nullptr;
+
+        do {
+            swapped = false;
+            current_ptr = head_;
+
+            do {
+                if (current_ptr->getNext()->getData()->getName() < current_ptr->getData()->getName()) {
+                    IDE* temp = current_ptr->getData();
+                    current_ptr->setData(current_ptr->getNext()->getData());
+                    current_ptr->getNext()->setData(temp);
+                    swapped = true;
+                }
+                current_ptr = current_ptr->getNext();
+            } while (current_ptr->getNext() != head_);
+
+            last_ptr = current_ptr;
+        } while (swapped);
     }
 
     IDE* IDE_LinkedList::findByType(IdeType type)

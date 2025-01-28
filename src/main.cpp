@@ -7,10 +7,10 @@
 #define ide ide_class
 
 int main() {
-    ide::IDE first("first");
-    ide::IDE second("second");
-    ide::IDE third("third");
-    ide::IDE fourth("fourth");  
+    ide::IDE first("a_first");
+    ide::IDE second("b_second");
+    ide::IDE third("c_third");
+    ide::IDE fourth("d_fourth");  
 
     ide::IDE_LinkedList linked_list;
     linked_list.addFirst(&first);
@@ -18,14 +18,11 @@ int main() {
     linked_list.addFirst(&third);
     linked_list.addFirst(&fourth);
 
-    linked_list.getFirst()->getNext()->getData()->setType(ide_class::IdeType::CloudBased);
+    linked_list.printList();
+    std::cout << std::endl;
 
-    if (linked_list.findByName("111111111111111")) {
-        std::cout << linked_list.findByName("111111111111111")->getName() << std::endl;
-    }
-    else {
-        std::cout << "Cannot find by name" << std::endl;
-    }
+    linked_list.sortByName();
+    linked_list.printList();
 
     return 0;
 }
