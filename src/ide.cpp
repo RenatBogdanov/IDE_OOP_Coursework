@@ -7,22 +7,20 @@ namespace ide_class {
         ++id_global;
         id_ = id_global;
         adress_ = this;
+        setType(IdeType::NoneType);
     }
 
     IDE::IDE() {
         init();
         name_ = "default";
-        //std::cout << "Birth of new class: " << getName() << std::endl;
     }
 
     IDE::IDE(const std::string n){
         init();
         name_ = n;
-        //std::cout << "Birth of new class: " << getName() << std::endl;
     }
 
     IDE::~IDE(){
-        //std::cout << "Death of class: " << getName() << std::endl;
     }
 
 

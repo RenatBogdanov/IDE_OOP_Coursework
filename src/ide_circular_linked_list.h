@@ -12,14 +12,14 @@ namespace ide_class {
     struct Node
     {
         private:
-            IDE data_;
             Node* next_;
+            IDE* data_;
         public:
             Node();
             Node* getNext() const;
             void setNext(Node* n);
-            IDE getData() const;
-            void setData(IDE data);
+            IDE* getData() const;
+            void setData(IDE* data);
     };
 
 
@@ -38,7 +38,7 @@ namespace ide_class {
             bool isEmpty();
             int size();
 
-            void addFirst(IDE data);
+            void addFirst(IDE* data);
 
             Node* getFirst();
 
@@ -49,9 +49,11 @@ namespace ide_class {
             IDE getContainer();
 
             void sortByName();
+
+
             IDE* findByType(IdeType type);
+
             IDE* findByName(std::string name);
-            IDE* toArray(int& size);
 
     };
 }

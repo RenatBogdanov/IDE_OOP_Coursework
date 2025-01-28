@@ -9,6 +9,7 @@
 namespace ide_class {
     /// @brief Перечисление типов IDE
     enum class IdeType {
+        NoneType,
         TextEditor,
         FullFeatured,
         CloudBased

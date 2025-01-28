@@ -7,45 +7,25 @@
 #define ide ide_class
 
 int main() {
-    ide::IDE first("1");
-    ide::IDE second("2");
-    ide::IDE third("3");
-    ide::IDE fourth("4");  
+    ide::IDE first("first");
+    ide::IDE second("second");
+    ide::IDE third("third");
+    ide::IDE fourth("fourth");  
 
     ide::IDE_LinkedList linked_list;
-    linked_list.addFirst(first);
-    linked_list.printList();
-    std::cout << std::endl;
+    linked_list.addFirst(&first);
+    linked_list.addFirst(&second);
+    linked_list.addFirst(&third);
+    linked_list.addFirst(&fourth);
 
-    linked_list.addFirst(second);
-    linked_list.printList();
-    std::cout << std::endl;
+    linked_list.getFirst()->getNext()->getData()->setType(ide_class::IdeType::CloudBased);
 
-    linked_list.addFirst(third);
-    linked_list.printList();
-    std::cout << std::endl;
-
-    linked_list.addFirst(fourth);
-    linked_list.printList();
-    std::cout << std::endl;
-
-    ide_class::Node* tempFirst = linked_list.getFirst();
-    std::cout << "tempFirst = " << tempFirst << std::endl;
-    std::cout << "tempFirst = " << tempFirst->getData().getName() << std::endl << std::endl;
-
-    linked_list.removeFirst();
-    linked_list.printList();
-    std::cout << std::endl;
-
-    std::cout << "tempFirst = " << tempFirst->getData().getName() << std::endl << std::endl;
-
-    linked_list.printList();
-
-    
-    ide::IDE* container = new ide::IDE[linked_list.size()];
-    *container = linked_list.getContainer();
-
-    std::cout << container[linked_list.size()-1].getName() << std::endl;
+    if (linked_list.findByName("111111111111111")) {
+        std::cout << linked_list.findByName("111111111111111")->getName() << std::endl;
+    }
+    else {
+        std::cout << "Cannot find by name" << std::endl;
+    }
 
     return 0;
 }

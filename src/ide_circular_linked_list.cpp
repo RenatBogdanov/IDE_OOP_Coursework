@@ -18,11 +18,11 @@ namespace ide_class {
         next_ = next;
     }
 
-    IDE Node::getData() const {
+    IDE* Node::getData() const {
         return data_;
     }
 
-    void Node::setData(IDE data) {
+    void Node::setData(IDE* data) {
         data_ = data;
     }
 
@@ -51,7 +51,7 @@ namespace ide_class {
         return size_;
     }
 
-    void IDE_LinkedList::addFirst(IDE data)
+    void IDE_LinkedList::addFirst(IDE* data)
     {
         Node* newNode = new Node();
         newNode->setData(data);
@@ -91,49 +91,60 @@ namespace ide_class {
         size_--;
     }
 
-    const void IDE_LinkedList::printList()
+    const void IDE_LinkedList::printList() 
     {
+        if (isEmpty()) return;
         Node* newHead = head_->getNext();
         Node* temp = getFirst();
 
-        std::cout << temp << ": " << temp->getData().getName() << std::endl;
-        while (temp->getNext() != head_)
-        {
+        std::cout << temp << ": " << temp->getData()->getName() << std::endl;
+        while (temp->getNext() != head_) {
             temp = temp->getNext();
-            std::cout << temp << ": " << temp->getData().getName() << std::endl;
+            std::cout << temp << ": " << temp->getData()->getName() << std::endl;
         }
+
     }
 
     IDE IDE_LinkedList::getContainer()
     {
         IDE* container = new IDE[size_];
-        Node* temp = getFirst();
+        Node temp = *getFirst();
         for (int i = 0; i < size_; i++) {
-            container[i] = temp->getData();
-            temp = temp->getNext();
+            container[i] = *temp.getData();
+            temp = *temp.getNext();
         }
-        container[size_-1] = temp->getData();
+        container[size_-1] = *temp.getData();
 
         return *container;
     }
-
+    
     void IDE_LinkedList::sortByName()
     {
 
     }
 
-    IDE *IDE_LinkedList::findByType(IdeType type)
+    IDE* IDE_LinkedList::findByType(IdeType type)
     {
+        Node* temp = getFirst();
+        for (int i = 0; i < size_; i++) {
+            if (temp->getData()->getType() == type) {
+                return temp->getData();
+            }
+            temp = temp->getNext();
+        }
         return nullptr;
     }
 
-    IDE *IDE_LinkedList::findByName(std::string name)
+    IDE *IDE_LinkedList::findByName(const std::string name)
     {
+        Node* temp = getFirst();
+        
+        for (int i = 0; i < size_; i++) {
+            if (temp->getData()->getName() == name) {
+                return temp->getData();
+            }
+            temp = temp->getNext();
+        }
         return nullptr;
-    }
-
-    IDE *IDE_LinkedList::toArray(int &)
-    {
-    return nullptr;
     }
 }
