@@ -89,7 +89,14 @@ namespace ide_class {
         /// @return Адресс объекта IDE
         const IDE* getAdress() const;
 
+    public:
+        // Перегрузка операторов
+        IDE operator+ (const IDE& counter);
+        IDE& operator= (const IDE& other);
 
     };
+
+
+    
 }
 #endif

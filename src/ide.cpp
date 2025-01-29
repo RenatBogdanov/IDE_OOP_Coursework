@@ -58,4 +58,13 @@ namespace ide_class {
     const IDE* IDE::getAdress() const {
         return adress_;
     }
+
+    IDE& IDE::operator=(const IDE& other) {
+    if (this != &other) {
+        name_ = other.name_;
+        version_ = other.version_;
+        type_ = other.type_;
+    }
+    return *this;
+    }
 }

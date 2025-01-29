@@ -12,17 +12,8 @@ int main() {
     ide::IDE third("c_third");
     ide::IDE fourth("d_fourth");  
 
-    ide::IDE_LinkedList linked_list;
-    linked_list.addFirst(&first);
-    linked_list.addFirst(&second);
-    linked_list.addFirst(&third);
-    linked_list.addFirst(&fourth);
-
-    linked_list.printList();
-    std::cout << std::endl;
-
-    linked_list.sortByName();
-    linked_list.printList();
+    first = second;
+    std::cout << first.getName() << std::endl;
 
     return 0;
 }
