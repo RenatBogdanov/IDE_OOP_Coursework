@@ -97,10 +97,10 @@ namespace ide_class {
         Node* newHead = head_->getNext();
         Node* temp = getFirst();
 
-        std::cout << temp << ": " << temp->getData()->getName() << std::endl;
+        std::cout << temp << ": " << std::endl << *temp->getData();
         while (temp->getNext() != head_) {
             temp = temp->getNext();
-            std::cout << temp << ": " << temp->getData()->getName() << std::endl;
+            std::cout << temp << ": "  << std::endl << *temp->getData();
         }
 
     }
@@ -181,4 +181,12 @@ namespace ide_class {
     bool Node::operator== (const Node&other) {
         return (this->getData() == other.getData()) && (this->getNext() == other.getNext());
     }
+
+    std::ostream& operator<< (std::ostream& out, const IDE& ide) {
+        out << " " << "Name: " << ide.getName() << std::endl;
+        out << " " << "Version: " << ide.getVersion() << std::endl;
+        out << " " << "Type: " << (int)ide.getType() << std::endl;
+        return out;
+    }
+
 }

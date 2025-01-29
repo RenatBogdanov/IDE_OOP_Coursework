@@ -93,6 +93,7 @@ namespace ide_class {
         // Перегрузка операторов
         IDE& operator= (const IDE& other);
         bool operator== (const IDE& other);
+        
 
     };
 

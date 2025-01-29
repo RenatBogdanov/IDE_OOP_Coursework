@@ -81,6 +81,8 @@ namespace ide_class {
             /// @return Указатель на первый встретившийся элемент
             IDE* findByName(std::string name);
 
+            friend std::ostream& operator<< (std::ostream& out, const IDE& ide);
+
     };
 }
 

@@ -19,13 +19,6 @@ int main() {
     linked_list.addFirst(&fourth);
 
     linked_list.printList();
-    std::cout << std::endl;
-    first = second;
-    std::cout << (*linked_list.getFirst() == *linked_list.getFirst()->getNext()) << std::endl;
-    std::cout << (first == second) << std::endl;
-
-
-    linked_list.printList();
 
     return 0;
 }
