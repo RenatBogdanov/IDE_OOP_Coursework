@@ -81,6 +81,10 @@ namespace ide_class {
             /// @return Указатель на первый встретившийся элемент
             IDE* findByName(std::string name);
 
+            /// @brief Вывод содержимого объекта
+            /// @param out поток вывода
+            /// @param ide объект типа IDE
+            /// @return Данные объекта IDE в поток
             friend std::ostream& operator<< (std::ostream& out, const IDE& ide);
 
     };
