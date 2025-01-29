@@ -172,9 +172,13 @@ namespace ide_class {
     }
 
     Node& Node::operator=(const Node& other) {
-    if (this->getData() != other.getData()) {
-        this->setData(other.getData());
+        if (this->getData() != other.getData()) {
+            this->setData(other.getData());
+        }
+        return *this;
     }
-    return *this;
+
+    bool Node::operator== (const Node&other) {
+        return (this->getData() == other.getData()) && (this->getNext() == other.getNext());
     }
 }

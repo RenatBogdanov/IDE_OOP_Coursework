@@ -91,8 +91,8 @@ namespace ide_class {
 
     public:
         // Перегрузка операторов
-        IDE operator+ (const IDE& counter);
         IDE& operator= (const IDE& other);
+        bool operator== (const IDE& other);
 
     };
 

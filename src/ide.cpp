@@ -59,12 +59,17 @@ namespace ide_class {
         return adress_;
     }
 
+
     IDE& IDE::operator=(const IDE& other) {
-    if (this != &other) {
-        name_ = other.name_;
-        version_ = other.version_;
-        type_ = other.type_;
+        if (this != &other) {
+            name_ = other.name_;
+            version_ = other.version_;
+            type_ = other.type_;
+        }
+        return *this;
     }
-    return *this;
+
+    bool IDE::operator== (const IDE&other) {
+        return (this->getName() == other.getName()) && (this->getType() == other.getType()) && (this->getVersion() == other.getVersion());
     }
 }

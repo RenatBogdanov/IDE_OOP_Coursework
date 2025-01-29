@@ -20,8 +20,10 @@ int main() {
 
     linked_list.printList();
     std::cout << std::endl;
+    first = second;
+    std::cout << (*linked_list.getFirst() == *linked_list.getFirst()->getNext()) << std::endl;
+    std::cout << (first == second) << std::endl;
 
-    *linked_list.getFirst()->getNext()->getData() = *linked_list.getFirst()->getData();
 
     linked_list.printList();
 

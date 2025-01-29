@@ -22,6 +22,7 @@ namespace ide_class {
             void setData(IDE* data);
             
             Node& operator= (const Node& other);
+            bool operator== (const Node& other);
     };
 
 
