@@ -68,6 +68,9 @@ namespace ide_class {
             /// @return Первый элемент списка
             Node* getFirst();
 
+            void setFirst(Node* head);
+
+
             /// @brief Геттер контейнера данных списка
             /// @return Массив элементов списка типа IDE
             IDE getContainer();
@@ -91,6 +94,7 @@ namespace ide_class {
             bool operator&& (const IDE_LinkedList& other);
             bool operator|| (const IDE_LinkedList& other);
             bool operator! ();
+            IDE_LinkedList& operator+= (IDE_LinkedList& other);
     };
 }
 

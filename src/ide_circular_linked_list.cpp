@@ -56,7 +56,7 @@ namespace ide_class {
         Node* newNode = new Node();
         newNode->setData(data);
         if (isEmpty()) {
-            head_ = newNode;   
+            setFirst(newNode);   
             newNode->setNext(head_);
         }
         else {
@@ -70,6 +70,10 @@ namespace ide_class {
             head_ = newNode;         
         }
         size_++;
+    }
+
+    void IDE_LinkedList::setFirst(Node* head) {
+        head_ = head;
     }
 
     Node* IDE_LinkedList::getFirst()
@@ -203,5 +207,25 @@ namespace ide_class {
 
     bool IDE_LinkedList::operator! () {
         return this->isEmpty();
+    }
+
+    IDE_LinkedList& IDE_LinkedList::operator+= (IDE_LinkedList& other) {
+        if (other.isEmpty()) return *this;
+        Node* temp = this->getFirst(); // Начало первого списка
+        
+        while (temp->getNext() != head_) { // Идём до последнего элемента первого списка
+            temp = temp->getNext();
+        }
+
+        Node* temp_other = other.getFirst(); // Начало Второго списка
+
+        while (temp_other->getNext() != other.getFirst()) { // Идём до последнего элемента второго списка
+            temp_other = temp_other->getNext();
+        }
+
+        temp->setNext(other.getFirst()); // Устанавливаем указатель на начало второго списка
+        
+        temp_other->setNext(this->getFirst()); // Связываем с началом первого
+        return *this;
     }
 }
