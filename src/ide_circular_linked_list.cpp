@@ -170,4 +170,11 @@ namespace ide_class {
         }
         return nullptr;
     }
+
+    Node& Node::operator=(const Node& other) {
+    if (this->getData() != other.getData()) {
+        this->setData(other.getData());
+    }
+    return *this;
+    }
 }

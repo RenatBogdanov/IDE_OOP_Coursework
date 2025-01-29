@@ -20,6 +20,8 @@ namespace ide_class {
             void setNext(Node* n);
             IDE* getData() const;
             void setData(IDE* data);
+            
+            Node& operator= (const Node& other);
     };
 
 
