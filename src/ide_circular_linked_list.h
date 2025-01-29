@@ -23,6 +23,7 @@ namespace ide_class {
             
             Node& operator= (const Node& other);
             bool operator== (const Node& other);
+            bool operator!= (const Node& other);
     };
 
 
@@ -43,7 +44,7 @@ namespace ide_class {
 
             /// @brief Проверка списка на пустоту
             /// @return true - список пуст; false - если есть элементы
-            bool isEmpty();
+            bool isEmpty() const;
 
             /// @brief Геттер количества элементов в списке
             /// @return количество элементов в списке
@@ -86,7 +87,10 @@ namespace ide_class {
             /// @param ide объект типа IDE
             /// @return Данные объекта IDE в поток
             friend std::ostream& operator<< (std::ostream& out, const IDE& ide);
-
+            
+            bool operator&& (const IDE_LinkedList& other);
+            bool operator|| (const IDE_LinkedList& other);
+            bool operator! ();
     };
 }
 

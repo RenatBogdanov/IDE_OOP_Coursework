@@ -40,7 +40,7 @@ namespace ide_class {
         //delete[] lastContainer;
     }
 
-    bool IDE_LinkedList::isEmpty() 
+    bool IDE_LinkedList::isEmpty() const
     {
         if (size_ == 0) return true;
         else return false;
@@ -182,11 +182,26 @@ namespace ide_class {
         return (this->getData() == other.getData()) && (this->getNext() == other.getNext());
     }
 
+    bool Node::operator!= (const Node&other) {
+        return !(*this==other);
+    }
+
     std::ostream& operator<< (std::ostream& out, const IDE& ide) {
         out << " " << "Name: " << ide.getName() << std::endl;
         out << " " << "Version: " << ide.getVersion() << std::endl;
         out << " " << "Type: " << (int)ide.getType() << std::endl;
         return out;
     }
+    
+    bool  IDE_LinkedList::operator&& (const IDE_LinkedList& other) {
+        return !((this->isEmpty()) && (other.isEmpty()));
+    }
 
+    bool  IDE_LinkedList::operator|| (const IDE_LinkedList& other) {
+        return !((this->isEmpty()) || (other.isEmpty()));
+    }
+
+    bool IDE_LinkedList::operator! () {
+        return this->isEmpty();
+    }
 }

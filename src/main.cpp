@@ -18,7 +18,7 @@ int main() {
     linked_list.addFirst(&third);
     linked_list.addFirst(&fourth);
 
-    linked_list.printList();
+    std::cout << (linked_list && linked_list) << std::endl;
 
     return 0;
 }
