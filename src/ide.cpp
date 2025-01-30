@@ -7,17 +7,22 @@ namespace ide_class {
         ++id_global;
         id_ = id_global;
         adress_ = this;
-        setType(IdeType::NoneType);
     }
 
     IDE::IDE() {
         init();
         name_ = "default";
+        setType(IdeType::NoneType);
     }
 
     IDE::IDE(const std::string n){
         init();
         name_ = n;
+        setType(IdeType::NoneType);
+    }
+
+    IDE::IDE(const IDE& other) : name_(other.getName()), version_(other.getVersion()), type_(other.getType()) {
+        init();
     }
 
     IDE::~IDE(){

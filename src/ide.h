@@ -52,6 +52,8 @@ namespace ide_class {
         /// @param n Название класса
         IDE(const std::string n);
 
+        IDE(const IDE& other);
+
         /// @brief Деструктор класса IDE
         ~IDE();
 
@@ -93,7 +95,7 @@ namespace ide_class {
         // Перегрузка операторов
         IDE& operator= (const IDE& other);
         bool operator== (const IDE& other);
-        
+
 
     };
 

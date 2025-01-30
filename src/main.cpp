@@ -11,12 +11,14 @@ int main() {
     ide::IDE second("b_second");
     ide::IDE third("c_third");
     ide::IDE fourth("d_fourth");  
+    ide::IDE fifth(first);
 
     ide::IDE_LinkedList linked_list;
     linked_list.addFirst(&first);
     linked_list.addFirst(&second);
     linked_list.addFirst(&third);
     linked_list.addFirst(&fourth);
+    linked_list.addFirst(&fifth);
 
 
     ide::IDE first2("a_first2");
@@ -29,11 +31,6 @@ int main() {
     linked_list2.addFirst(&second2);
     linked_list2.addFirst(&third2);
     linked_list2.addFirst(&fourth2);
-
-    // linked_list.printList();
-    // linked_list2.printList();
-
-    linked_list += linked_list2;
 
     linked_list.printList();
     
